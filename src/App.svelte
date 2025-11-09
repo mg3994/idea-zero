@@ -1,5 +1,6 @@
 <script>
   import Router from 'svelte-spa-router';
+  import { location } from 'svelte-spa-router';
   import Header from './lib/components/layout/Header.svelte';
   import Footer from './lib/components/layout/Footer.svelte';
   
@@ -22,6 +23,11 @@
     '/settings': Settings,
     '/account': Account
   };
+
+  // Scroll to top on route change
+  $: if ($location) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 </script>
 
 <div id="app">

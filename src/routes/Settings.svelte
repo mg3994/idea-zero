@@ -11,9 +11,17 @@
     push: true
   };
 
-  function handleSave() {
+  // Apply theme changes immediately
+  $: if (selectedTheme) {
     setTheme(selectedTheme);
+  }
+
+  // Apply language changes immediately
+  $: if (selectedLanguage) {
     setLanguage(selectedLanguage);
+  }
+
+  function handleSave() {
     localStorage.setItem('notifications', JSON.stringify(notifications));
     alert('Settings saved successfully!');
   }
